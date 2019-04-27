@@ -7,16 +7,24 @@ module.exports = {
     path: path.join(__dirname, "../public/js/"),
     filename: 'index.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.less$/, // 匹配以.less结尾的文件
+        use: ["style-loader", "css-loader", "less-loader"] // 从后往前解析
+      }
+    ]
+  },
   resolve: {
     alias: {
       jquery: path.join(__dirname, "./js/libs/jquery.min.js"),
       mod: path.join(__dirname, "./js/mod"),
-      less: path.join(__dirname, "./less")
+      less: path.join(__dirname, "./less"),
     }
   },
   plugins: [
     new webpack.DefinePlugin({
-      // Definitions...
+      $: 'jquery'
     })
   ]
 }
