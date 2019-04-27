@@ -19,7 +19,11 @@ class Toast {
 
   showToast() {
     this.$toast.fadeIn(300, () => {
-
+      setTimeout(() => {
+        this.$toast.fadeOut(300, () => {
+          this.$toast.remove()
+        })
+      }, this.duration);
     })
   }
 }
