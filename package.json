@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "cross-env PORT=8080 node ./bin/www",
-    "webpack": "webpack --config=src/webpack.config.js",
+    "webpack": "webpack --config=src/webpack.config.js --mode=development",
     "watch": "cross-env onchange 'src/**/*.js' -- npm run webpack'"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "ejs": "~2.5.7",
     "express": "~4.16.0",
     "http-errors": "~1.6.2",
+    "jquery": "^3.4.0",
     "morgan": "~1.9.0",
     "onchange": "^5.2.0",
     "webpack": "^4.30.0",
