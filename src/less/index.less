@@ -1,3 +1,242 @@
-body{
-  background: red
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato",
+    "PingFang SC",
+    sans-serif;
+  font-size: 16px;
+}
+
+*::before {
+  box-sizing: border-box
+}
+
+*::after {
+  box-sizing: border-box
+}
+
+body {
+  background: #f4f5f5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 30px;
+}
+
+.icon {
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+#header {
+  background: #fff;
+  border-bottom: solid 1px #e8e8e8;
+  color: #00d3aa;
+
+  .header-innerWapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    min-width: 960px;
+    padding: 25px 0;
+    margin: 0 auto;
+
+    .loginbox {
+      display: flex;
+      list-style: none;
+
+      li {
+        padding: 10px;
+
+        &.login {
+          background: #00d3aa;
+          color: #fff;
+          border-radius: 32px;
+
+          a {
+            svg {
+              fill: #fff;
+            }
+          }
+
+        }
+      }
+
+    }
+  }
+
+
+}
+
+#content {
+  max-width: 1400px;
+  min-width: 960px;
+  margin: 30px auto;
+
+  // note
+  .note {
+    width: 300px;
+    padding: 25px;
+    margin: 20px;
+    background: #fff;
+    border: solid 1px #e8e8e8;
+    border-radius: 5px;
+    font-size: 16px;
+
+    .created-date {
+      padding-bottom: 20px;
+      border-bottom: solid 1px #e8e8e8;
+      color: #878787;
+
+      .close {
+        float: right;
+
+        svg {
+          width: 1em;
+          height: 1em;
+          fill: #d8d8d8;
+        }
+      }
+    }
+
+    .note-content {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      border-bottom: solid 1px #e8e8e8;
+    }
+
+    .stars {
+      padding-top: 30px;
+
+      svg {
+        width: 1em;
+        width: 1em;
+        fill: #dbdbdb;
+      }
+    }
+
+    .complete {
+      color: #fff;
+      margin-top: 20px;
+      width: 80px;
+      line-height: 32px;
+      background: #15d1e8;
+      text-align: center;
+      border-radius: 16px;
+    }
+  }
+
+}
+
+// scrool to top and add note
+#addNote {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+  display: flex;
+  flex-direction: column;
+
+  .scrollTop {
+    padding: 15px;
+    margin-bottom: 25px;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(189, 220, 215, 1);
+
+    svg {
+      fill: #00d3aa
+    }
+  }
+
+  .add {
+    padding: 15px;
+    background: #00d3aa;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(189, 220, 215, 1);
+    cursor: pointer;
+
+    svg {
+      fill: white;
+    }
+  }
+}
+
+#pop-up {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: rgba(20, 86, 76, .7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .create-box {
+    background: #fff;
+    border: solid 1px #e8e8e8;
+    padding: 25px;
+
+    h2 {
+      color: #878787;
+      text-align: center;
+
+      svg {
+        float: right;
+        cursor: pointer;
+        width: 1em;
+        height: 1em;
+      }
+    }
+
+    .content {
+      width: 780px;
+      height: 460px;
+      margin-top: 15px;
+      margin-bottom: 25px;
+      padding: 15px;
+      border: 1px solid #e7e7e7;
+      border-radius: 3px;
+    }
+
+    .stars {
+      margin-bottom: 40px;
+
+      .stars-innerWapper {
+        display: inline;
+        padding-left: 15px;
+
+        svg {
+          margin: 0 5px;
+          width: 1em;
+          height: 1em;
+          fill: #d8d8d8;
+        }
+      }
+
+    }
+
+    .submit {
+      display: block;
+      margin: 20px auto;
+      font-size: 20px;
+      padding: 16px 105px;
+      border: none;
+      background: #00d3aa;
+      color: #fff;
+      border-radius: 100px;
+    }
+  }
 }

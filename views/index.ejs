@@ -1,61 +1,105 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-  </head>
-  <body>
-    <div id="header">
 
+<head>
+  <title><%= title %></title>
+</head>
 
-      <ul>
+<body>
+  <div id="header">
+    <div class="header-innerWapper">
+      <h2>Jiang在线便签</h2>
+      <ul class="loginbox">
         <% if (isLogin){ %>
         <li><img src="" alt=""></li>
         <li><span><%= user.username %></span></li>
         <li><span class="line"> | </span></li>
         <li><a class="logout" href="#">注销</a></li>
         <% }else{%>
-        <li>
-          <a href="">GitHub 登陆</a>
+        <li class="login">
+          <a href="">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#i-github"></use>
+            </svg>
+            GitHub 登陆</a>
         </li>
         <% } %>
       </ul>
-      <a href="#" title="添加笔记">+</a>
-      <% if (isLogin){ %>
-      <div class="tips">
-        <h2>Good Morning <%= user.username %>!</h2>
-        <p>You have <span>4 notes</span> to complete</p>
-      </div>
-      <% } %>
     </div>
+  </div>
 
-    <div id="content">
+  <div id="content">
 
-      <div class="note">
-        <span class="dot"></span>
-        <div class="note=content">
-          Don't forget the paln for a trip
-        </div>
+    <div class="note">
+      <div class="created-date">2018年01月08日<span class="close"><svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-close"></use>
+          </svg></span></div>
+      <div class="note-content">
+        Don't forget the paln for a trip
       </div>
-      <div class="note">
-        <span class="dot"></span>
-        <div class="note=content">
-          Don't forget the paln for a xxx
-        </div>
+      <div class="stars">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-star"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-star"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-star"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-star"></use>
+        </svg>
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-star"></use>
+        </svg>
       </div>
-      <div class="note">
-        <span class="dot"></span>
-        <div class="note=content">
-          Don't forget the paln for a yyy
-        </div>
-      </div>
-      <div class="note">
-        <span class="dot"></span>
-        <div class="note=content">
-          Don't forget the paln for a ddd
-        </div>
-      </div>
+      <div class="complete">已完成</div>
     </div>
-    <div id="background"></div>
-    <script src="/js/index.js"></script>
-  </body>
+  </div>
+  <div id="background"></div>
+  <div id="addNote">
+    <span class="scrollTop">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#i-up"></use>
+      </svg>
+    </span>
+    <span class="add" title="添加笔记">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#i-add"></use>
+      </svg>
+    </span>
+  </div>
+  <div id="pop-up">
+    <div class="create-box">
+      <h2>添加新便签<svg class="icon" aria-hidden="true">
+          <use xlink:href="#i-close"></use>
+        </svg></h2>
+      <textarea class="content" name="" id="" placeholder="请输入内容"></textarea>
+      <div class="stars">重要星级:
+        <div class="stars-innerWapper">
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-star"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-star"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-star"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-star"></use>
+          </svg>
+          <svg class="icon" aria-hidden="true">
+            <use xlink:href="#i-star"></use>
+          </svg>
+        </div>
+      </div>
+      <button class="submit">添加</button>
+    </div>
+  </div>
+  <script src="//at.alicdn.com/t/font_1171316_fdr5d9so1db.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
 </html>
