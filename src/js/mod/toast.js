@@ -1,5 +1,4 @@
 require('less/toast.less')
-let $ = require('jquery');
 
 class Toast {
   constructor(message, duration) {

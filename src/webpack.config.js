@@ -17,13 +17,13 @@ module.exports = {
   },
   resolve: {
     alias: {
-      jquery: path.join(__dirname, "./js/libs/jquery.min.js"),
+      jquery: path.join(__dirname, "./js/libs/jquery-2.0.3.min.js"),
       mod: path.join(__dirname, "./js/mod"),
       less: path.join(__dirname, "./less"),
     }
   },
   plugins: [
-    new webpack.DefinePlugin({
+    new webpack.ProvidePlugin({
       $: 'jquery'
     })
   ]

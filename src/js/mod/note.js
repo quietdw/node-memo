@@ -1,7 +1,6 @@
 require('less/note.less')
-let $ = require('jquery');
-let Toast = require('./toast.js').Toast;
-let Event = require('mod/eventBus.js');
+let toast = require('./toast.js').toast;
+
 
 function Note(opts) {
   this.createNote();
@@ -49,7 +48,7 @@ Note.prototype = {
     let $close = $note.find('.close')
     $close.on('click', () => {
       $note.remove()
-      Toast('删除成功')
+      toast('删除成功', 1000)
     })
   }
 }
