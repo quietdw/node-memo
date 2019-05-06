@@ -1,6 +1,7 @@
 require('less/note.less')
-let toast = require('./toast.js').toast;
 
+let toast = require('./toast.js').toast;
+let Waterfall = require('../libs/waterfall.js').waterfall
 
 function Note(opts) {
   this.createNote(opts);
@@ -15,7 +16,7 @@ Note.prototype = {
             <use xlink:href="#i-close"></use>
           </svg></span></div>
       <div class="note-content">
-        
+
       </div>
       <div class="stars">
         <svg class="icon" aria-hidden="true">
@@ -47,6 +48,7 @@ Note.prototype = {
     $close.on('click', () => {
       $note.remove()
       toast('删除成功', 1000)
+      Waterfall('#content')
     })
   }
 }
