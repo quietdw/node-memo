@@ -6,13 +6,18 @@ var Note = require('./note.js').Note
 
 
 function PopUp() {
+    this.message ={
+        content:'',
+        level:''
+    }
     this.createNote();
     this.bindEvent();
 }
 
 PopUp.prototype = {
     defaultOpts: {
-
+        content:'',
+        level:'1' // 1到5
     },
     createNote() {
         let tpl = `
@@ -47,14 +52,33 @@ PopUp.prototype = {
         $('#pop-up').append(this.$popUp);
     },
     bindEvent() {
-        this.$popUp.find('.stars-innerWapper').on('click','svg',(e)=>{
-            let index = $(e.currentTarget).index()
-            let scale = `:nth-child(-n+${index+1})`
-            $('.stars svg').css('fill','#d8d8d8')
-            $('.stars svg'+scale).css('fill','#00d3aa')
+
+        eventBus.on('closed',()=>{
+            console.log(123)
+            this.$popUp.find('.content').val('')
+            $('.stars-innerWapper svg').css('fill','#d8d8d8')
         })
+
+        this.$popUp.find('.stars-innerWapper').on('click','svg',(e)=>{
+            this.message.level = $(e.currentTarget).index()
+            let index = this.message.level
+            let scale = `:nth-child(-n+${index+1})`
+            $('.stars-innerWapper svg').css('fill','#d8d8d8')
+            $('.stars-innerWapper svg'+scale).css('fill','#00d3aa')
+        })
+
         this.$popUp.find('.close').on('click',()=>{
             eventBus.emit('closePopUp')
+        })
+
+        this.$popUp.find('.submit').on('click',()=>{
+            this.message.content = $('.content').val()
+            eventBus.emit('submit',JSON.parse(JSON.stringify(this.message)))
+            eventBus.emit('closePopUp')
+            this.message = {
+                content:'',
+                level:''
+            }
         })
     }
 }
